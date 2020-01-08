@@ -7,7 +7,12 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
     && mkdir /app
 
 WORKDIR /app
+
+COPY package.json yarn.lock ./
+RUN yarn install --check-files
+
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 COPY . /app
+ENV PATH=./bin:$PATH
