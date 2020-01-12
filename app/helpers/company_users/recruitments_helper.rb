@@ -1,0 +1,2 @@
+module CompanyUsers::RecruitmentsHelper
+end
