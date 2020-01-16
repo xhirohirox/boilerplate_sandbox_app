@@ -1,4 +1,19 @@
-%h2 Resend unlock instructions
+%h1 求人一覧
 
-- @recruitments.each do |recruitment|
-  = recruitment.title
+%table
+  %thead
+    %tr
+      %th 求人名
+      %th 求人詳細
+      %th 収入
+      %th
+
+  %tbody
+    - @recruitments.each do |recruitment|
+      %tr
+        %td= recruitment.name
+        %td= recruitment.description
+        %td= recruitment.income
+        %td= link_to 'Show'
+        %td= link_to 'Edit'
+        %td= link_to 'Destroy'
